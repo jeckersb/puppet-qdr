@@ -22,6 +22,11 @@ class qdr::install inherits qdr {
     provider => $package_provider,
   }
 
+
+  notify { "ensure_package value":
+    message => "ensure_package is ${ensure_package}",
+  } ->
+
   package { $service_package_name :
     ensure   => $ensure_package,
     provider => $package_provider,
